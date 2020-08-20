@@ -1,9 +1,12 @@
 import React from 'react';
 import firebase from 'firebase/app';
 import 'firebase/auth';
-// import fbConnection from '../helpers/data/connections';
+import fbConnection from '../helpers/data/connections';
+// import PropTypes from 'prop-types';
 import './App.scss';
-import Auth from '../components/Auth/Auth';
+import MyNavbar from '../components/MyNavbar/MyNavbar';
+
+fbConnection();
 
 class App extends React.Component {
   state = {
@@ -25,11 +28,11 @@ class App extends React.Component {
   }
 
   render() {
-    // const { authed } = this.state;
+    const { authed } = this.state;
     return (
       <div className="App">
         <h2>Atlanta Braves</h2>
-        <Auth />
+        <MyNavbar authed={authed} />
       </div>
     );
   }
