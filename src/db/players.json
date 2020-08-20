@@ -1,0 +1,80 @@
+{
+  "player1": {
+    "name": "Mike Soroka",
+    "imgUrl": "https://securea.mlb.com/mlb/images/players/head_shot/647336.jpg",
+    "position": "SP",
+    "uid": "y4xj8GVmGAe2TiCgz26Qch0ftqo2"
+  },
+  "player2": {
+    "name": "Max Fried",
+    "imgUrl": "https://securea.mlb.com/mlb/images/players/head_shot/608331.jpg",
+    "position": "SP",
+    "uid": "y4xj8GVmGAe2TiCgz26Qch0ftqo2"
+  },
+  "player3": {
+    "name": "Touki Toussaint",
+    "imgUrl": "https://securea.mlb.com/mlb/images/players/head_shot/657053.jpg",
+    "position": "SP",
+    "uid": "y4xj8GVmGAe2TiCgz26Qch0ftqo2"
+  },
+  "player4": {
+    "name": "Tyler Matzek",
+    "imgUrl": "https://securea.mlb.com/mlb/images/players/head_shot/554431.jpg",
+    "position": "RP",
+    "uid": "y4xj8GVmGAe2TiCgz26Qch0ftqo2"
+  },
+  "player5": {
+    "name": "Mark Melancon",
+    "imgUrl": "https://securea.mlb.com/mlb/images/players/head_shot/453343.jpg",
+    "position": "CP",
+    "uid": "y4xj8GVmGAe2TiCgz26Qch0ftqo2"
+  },
+  "player6": {
+    "name": "Travis d'Arnaud",
+    "imgUrl": "https://securea.mlb.com/mlb/images/players/head_shot/518595.jpg",
+    "position": "C",
+    "uid": "y4xj8GVmGAe2TiCgz26Qch0ftqo2"
+  },
+  "player7": {
+    "name": "Freddie Freeman",
+    "imgUrl": "https://securea.mlb.com/mlb/images/players/head_shot/518692.jpg",
+    "position": "1B",
+    "uid": "y4xj8GVmGAe2TiCgz26Qch0ftqo2"
+  },
+  "player8": {
+    "name": "Ozzie Albies",
+    "imgUrl": "https://securea.mlb.com/mlb/images/players/head_shot/645277.jpg",
+    "position": "2B",
+    "uid": "y4xj8GVmGAe2TiCgz26Qch0ftqo2"
+  },
+  "player9": {
+    "name": "Austin Riley",
+    "imgUrl": "https://securea.mlb.com/mlb/images/players/head_shot/663586.jpg",
+    "position": "3B, LF",
+    "uid": "y4xj8GVmGAe2TiCgz26Qch0ftqo2"
+  },
+  "player10": {
+    "name": "Dansby Swanson",
+    "imgUrl": "https://securea.mlb.com/mlb/images/players/head_shot/621020.jpg",
+    "position": "SS",
+    "uid": "y4xj8GVmGAe2TiCgz26Qch0ftqo2"
+  },
+  "player11": {
+    "name": "Marcell Ozuna",
+    "imgUrl": "https://securea.mlb.com/mlb/images/players/head_shot/542303.jpg",
+    "position": "LF",
+    "uid": "y4xj8GVmGAe2TiCgz26Qch0ftqo2"
+  },
+  "player12": {
+    "name": "Cristian Pache",
+    "imgUrl": "https://securea.mlb.com/mlb/images/players/head_shot/665506.jpg",
+    "position": "OF",
+    "uid": "y4xj8GVmGAe2TiCgz26Qch0ftqo2"
+  },
+  "player13": {
+    "name": "Ronald Acuna JR",
+    "imgUrl": "https://securea.mlb.com/mlb/images/players/head_shot/660670.jpg",
+    "position": "OF",
+    "uid": "y4xj8GVmGAe2TiCgz26Qch0ftqo2"
+  }
+}
