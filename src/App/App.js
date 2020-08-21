@@ -5,6 +5,7 @@ import fbConnection from '../helpers/data/connections';
 // import PropTypes from 'prop-types';
 import './App.scss';
 import MyNavbar from '../components/MyNavbar/MyNavbar';
+import PlayerContainer from '../components/PlayersContainer/PlayersContainer';
 
 fbConnection();
 
@@ -29,10 +30,19 @@ class App extends React.Component {
 
   render() {
     const { authed } = this.state;
+
+    const loadComponent = () => {
+      if (authed) {
+        return <PlayerContainer />;
+      }
+      return '';
+    };
+
     return (
       <div className="App">
-        <h2>Atlanta Braves</h2>
         <MyNavbar authed={authed} />
+        <h2>Atlanta Braves</h2>
+        {loadComponent()}
       </div>
     );
   }
