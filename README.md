@@ -1,68 +1,59 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Sports Roster
 
-## Available Scripts
+# Description
 
-In the project directory, you can run:
+# This is a web app that takes in players from a team and prints them in a card form with picture, position played, and name. This app is a crud app which means it is designed to  display players from a given roster, add new players to roster, update the players(such as position or team), and lastly cut players from the roster.
+---
+### Features
+* Will have a navbar at the top with a button to login or out
+* Page has styling that make's for easy viewing
+* Page requires sign-in/authentacation
+* Can only view players on your team/profile
+* Players printing to the page in columns that are sized acceptably for viewing
+* Icon/button at the top that allows adding/creating a new player and adding them to the roster.
+* Each player has two buttons one to cut the player the other to update it
+* Clicking the cut button will delete player from app and database
+* Clicking the update button should populate a form that allows you to update player name, image, and position.
+* Clicking the add player button in the nav bar should populate a form that takes in a name, image url, and position.
+* When submitting update or add form's the dom should refresh to show updated state of the players
+---
+### How to run
+1. Here is the link to the delpoyed app ( coming soon )
+---
+### Contributors
+* [Joshua Medlen](https://github.com/medlenmage)
+---
+## Screenshot
+![screenshot](/screenshots/roster.png)
+---
+## Code-Sample
+```
+class BuildPlayer extends React.Component {
+  static propTypes = {
+    player: playerShape.playerShape,
+    cutPlayer: PropTypes.func.isRequired,
+  }
 
-### `npm start`
+  cutPlayerEvent = (e) => {
+    e.preventDefault();
+    const { player, cutPlayer } = this.props;
+    cutPlayer(player.id);
+  }
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+  render() {
+    const { player } = this.props;
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+    return (
+      <div className="card">
+        <img className="card-img-top" src={player.imgUrl} alt={player.name}></img>
+        <div className="card-body">
+          <h5 className="card-title">{player.name}</h5>
+          <p className="card-text">{player.name} plays {player.position} for the Atlanta Braves</p>
+        </div>
+        <button className="btn btn-danger" onClick={this.cutPlayerEvent}>Cut Player</button>
+      </div>
+    );
+  }
+}
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+```
