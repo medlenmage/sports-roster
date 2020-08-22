@@ -41,7 +41,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <MyNavbar authed={authed} />
-        <h2>Atlanta Braves</h2>
+        <img src="https://i.imgur.com/330sNr5.jpg" alt="team-logo" className="roster-logo"></img>
         {loadComponent()}
       </div>
     );
