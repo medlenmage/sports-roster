@@ -28,6 +28,15 @@ class PlayerContainer extends React.Component {
       .catch((err) => console.error('could not delete pin', err));
   }
 
+  addNewPlayer = (newPlayer) => {
+    playerData.addPlayer(newPlayer)
+      .then(() => {
+        this.getPLayers();
+        this.setState({ formOpen: false });
+      })
+      .catch((err) => console.error('could not add player', err));
+  }
+
   render() {
     const { players } = this.state;
 
