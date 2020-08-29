@@ -4,7 +4,7 @@ import authData from '../../helpers/data/authData';
 
 class NewPlayerForm extends React.Component {
   static propTypes = {
-    addNewPLayer: PropTypes.func.isRequired,
+    addNewPlayer: PropTypes.func.isRequired,
     // updatePlayer: PropTypes.func.isRequired,
   }
 
@@ -32,7 +32,7 @@ class NewPlayerForm extends React.Component {
   signPlayerEvent = (e) => {
     e.preventDefault();
     const { name, imgUrl, position } = this.state;
-    const { addNewPLayer } = this.props;
+    const { addNewPlayer } = this.props;
 
     const newPlayer = {
       name,
@@ -40,31 +40,31 @@ class NewPlayerForm extends React.Component {
       position,
       uid: authData.getUid(),
     };
-    addNewPLayer(newPlayer);
+    addNewPlayer(newPlayer);
   }
 
   render() {
     const {
-      position,
-      imgUrl,
       name,
+      imgUrl,
+      position,
     } = this.state;
 
     return (
       <form className="col-6 offset-3">
         <div className="form-group">
           <label htmlFor="playerName">Player Name</label>
-          <input type="text" className="form-control" id="playerName" placeholder="Enter Player" value={name} onChange={this.changeNameEvent}></input>
+          <input type="text" className="form-control" id="playerName" placeholder="Enter Player" value={name} onChange={this.changeNameEvent} />
         </div>
         <div className="form-group">
           <label htmlFor="player-imgUrl">Player Picture</label>
-          <input type="text" className="form-control" id="player-imgUrl" placeholder="Player Picture" value={imgUrl} onChange={this.changePictureEvent}></input>
+          <input type="text" className="form-control" id="player-imgUrl" placeholder="Player Picture" value={imgUrl} onChange={this.changePictureEvent} />
         </div>
         <div className="form-group">
           <label htmlFor="player-position">Player Position</label>
-          <input type="text" className="form-control" id="player-position" placeholder="Player Position"value={position} onChange={this.changePositionEvent}></input>
+          <input type="text" className="form-control" id="player-position" placeholder="Player Position"value={position} onChange={this.changePositionEvent} />
         </div>
-      <button type="submit" className="btn btn-primary">Submit</button>
+      <button className="btn btn-primary" onClick={this.signPlayerEvent}>Submit</button>
     </form>
     );
   }

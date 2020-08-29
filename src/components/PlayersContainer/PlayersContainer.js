@@ -40,13 +40,14 @@ class PlayerContainer extends React.Component {
 
   render() {
     const { players } = this.state;
+    // const { addNewPlayer } = this.props;
 
     const playerCard = players.map((player) => <BuildPlayers key={player.id} player={player} cutPlayer={this.cutPlayer} />);
 
     return (
       <div>
         <div className="mb-3">
-          <NewPlayerForm />
+          <NewPlayerForm addNewPlayer={this.addNewPlayer}/>
         </div>
         <div className="card-columns">
           {playerCard}
