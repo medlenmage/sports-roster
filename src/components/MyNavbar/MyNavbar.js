@@ -30,7 +30,7 @@ class MyNavbar extends React.Component {
             <li className="nav-item">
               {
                 authed
-                  ? <button className="nav-link btn btn-danger text-dark logout-button" onClick={this.logoutClickEvent}><i class="fas fa-baseball-ball">3rd Strike!!!</i></button>
+                  ? <button className="nav-link btn btn-danger text-dark logout-button" onClick={this.logoutClickEvent}><i className="fas fa-baseball-ball">3rd Strike!!!</i></button>
                   : <Auth />
               }
             </li>
