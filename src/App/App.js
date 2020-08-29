@@ -8,7 +8,7 @@ import MyNavbar from '../components/MyNavbar/MyNavbar';
 import PlayerContainer from '../components/PlayersContainer/PlayersContainer';
 
 fbConnection();
-
+// add newplayer form
 class App extends React.Component {
   state = {
     authed: false,
