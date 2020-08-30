@@ -7,6 +7,8 @@ import NewPlayerForm from '../NewPlayerForm/NewPlayerForm';
 class PlayerContainer extends React.Component {
   state = {
     players: [],
+    formOpen: false,
+    updatedPlayer: {},
   }
 
   getPLayers = () => {
@@ -33,21 +35,34 @@ class PlayerContainer extends React.Component {
     playerData.addPlayer(newPlayer)
       .then(() => {
         this.getPLayers();
-        // this.setState({ formOpen: false });
+        this.setState({ formOpen: false });
       })
       .catch((err) => console.error('could not add player', err));
   }
 
-  render() {
-    const { players } = this.state;
-    // const { addNewPlayer } = this.props;
+  updateAPlayer = (playerToUpdate) => {
+    this.setState({ formOpen: true, updatedPlayer: playerToUpdate });
+  }
 
-    const playerCard = players.map((player) => <BuildPlayers key={player.id} player={player} cutPlayer={this.cutPlayer} />);
+  updatePlayer = (playerId, editedPlayer) => {
+    playerData.updatePlayer(playerId, editedPlayer)
+      .then(() => {
+        this.getPLayers();
+        this.setState({ formOpen: false, editedPlayer: {} });
+      })
+      .catch((err) => console.error("couldn't edit player", err));
+  }
+
+  render() {
+    const { players, formOpen, updatedPlayer } = this.state;
+
+    const playerCard = players.map((player) => <BuildPlayers key={player.id} player={player} cutPlayer={this.cutPlayer} updateAPlayer={this.updateAPlayer}/>);
 
     return (
       <div>
         <div className="mb-3">
-          <NewPlayerForm addNewPlayer={this.addNewPlayer}/>
+          <button type="button" className="btn btn-info add-player" onClick={() => { this.setState({ formOpen: !formOpen }); }}>Sign Player</button>
+          { formOpen ? <NewPlayerForm addNewPlayer={this.addNewPlayer} player={updatedPlayer} updatePlayer={this.updatePlayer}/> : '' }
         </div>
         <div className="card-columns">
           {playerCard}

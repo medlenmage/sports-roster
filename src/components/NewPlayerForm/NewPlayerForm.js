@@ -5,13 +5,27 @@ import authData from '../../helpers/data/authData';
 class NewPlayerForm extends React.Component {
   static propTypes = {
     addNewPlayer: PropTypes.func.isRequired,
-    // updatePlayer: PropTypes.func.isRequired,
+    player: PropTypes.object.isRequired,
+    updatePlayer: PropTypes.func.isRequired,
   }
 
   state = {
     name: '',
     imgUrl: '',
     position: '',
+    isUpdating: false,
+  }
+
+  componentDidMount() {
+    const { player } = this.props;
+    if (player.name) {
+      this.setState({
+        name: player.name,
+        imgUrl: player.imgUrl,
+        position: player.position,
+        isUpdating: true,
+      });
+    }
   }
 
   changeNameEvent = (e) => {
@@ -43,11 +57,25 @@ class NewPlayerForm extends React.Component {
     addNewPlayer(newPlayer);
   }
 
+  updatePlayerEvent = (e) => {
+    e.preventDefault();
+    const { name, imgUrl, position } = this.state;
+    const { updatePlayer, player } = this.props;
+    const editedPlayer = {
+      name,
+      imgUrl,
+      position,
+      uid: authData.getUid(),
+    };
+    updatePlayer(player.id, editedPlayer);
+  }
+
   render() {
     const {
       name,
       imgUrl,
       position,
+      isUpdating,
     } = this.state;
 
     return (
@@ -64,7 +92,11 @@ class NewPlayerForm extends React.Component {
           <label htmlFor="player-position">Player Position</label>
           <input type="text" className="form-control" id="player-position" placeholder="Player Position"value={position} onChange={this.changePositionEvent} />
         </div>
-      <button className="btn btn-primary" onClick={this.signPlayerEvent}>Submit</button>
+        {
+          isUpdating
+            ? <button className="btn btn-primary" onClick={this.updatePlayerEvent}>Update</button>
+            : <button className="btn btn-primary" onClick={this.signPlayerEvent}>Submit</button>
+        }
     </form>
     );
   }
