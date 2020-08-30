@@ -6,7 +6,7 @@ class NewPlayerForm extends React.Component {
   static propTypes = {
     addNewPlayer: PropTypes.func.isRequired,
     player: PropTypes.object.isRequired,
-    // updatePlayer: PropTypes.func.isRequired,
+    updatePlayer: PropTypes.func.isRequired,
   }
 
   state = {
@@ -57,6 +57,19 @@ class NewPlayerForm extends React.Component {
     addNewPlayer(newPlayer);
   }
 
+  updatePlayerEvent = (e) => {
+    e.preventDefault();
+    const { name, imgUrl, position } = this.state;
+    const { updatePlayer, player } = this.props;
+    const editedPlayer = {
+      name,
+      imgUrl,
+      position,
+      uid: authData.getUid(),
+    };
+    updatePlayer(player.id, editedPlayer);
+  }
+
   render() {
     const {
       name,
@@ -81,7 +94,7 @@ class NewPlayerForm extends React.Component {
         </div>
         {
           isUpdating
-            ? <button className="btn btn-primary">Update</button>
+            ? <button className="btn btn-primary" onClick={this.updatePlayerEvent}>Update</button>
             : <button className="btn btn-primary" onClick={this.signPlayerEvent}>Submit</button>
         }
     </form>

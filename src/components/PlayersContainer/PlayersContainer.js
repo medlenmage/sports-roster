@@ -44,6 +44,15 @@ class PlayerContainer extends React.Component {
     this.setState({ formOpen: true, updatedPlayer: playerToUpdate });
   }
 
+  updatePlayer = (playerId, editedPlayer) => {
+    playerData.updatePlayer(playerId, editedPlayer)
+      .then(() => {
+        this.getPLayers();
+        this.setState({ formOpen: false, editedPlayer: {} });
+      })
+      .catch((err) => console.error("couldn't edit player", err));
+  }
+
   render() {
     const { players, formOpen, updatedPlayer } = this.state;
 
@@ -53,7 +62,7 @@ class PlayerContainer extends React.Component {
       <div>
         <div className="mb-3">
           <button type="button" className="btn btn-info add-player" onClick={() => { this.setState({ formOpen: !formOpen }); }}>Sign Player</button>
-          { formOpen ? <NewPlayerForm addNewPlayer={this.addNewPlayer} player={updatedPlayer} /> : '' }
+          { formOpen ? <NewPlayerForm addNewPlayer={this.addNewPlayer} player={updatedPlayer} updatePlayer={this.updatePlayer}/> : '' }
         </div>
         <div className="card-columns">
           {playerCard}
