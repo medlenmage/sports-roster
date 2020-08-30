@@ -25,9 +25,6 @@ class MyNavbar extends React.Component {
           <img className="team-logo" src="https://sportslogohistory.com/wp-content/uploads/2018/03/atlanta_braves_2018-pres.png" alt="braves-logo"></img>
           <ul className="navbar-nav ml-auto">
             <li className="nav-item">
-            <button type="button" className="btn btn-info add-player">Sign Player</button>
-            </li>
-            <li className="nav-item">
               {
                 authed
                   ? <button className="nav-link btn btn-danger text-dark logout-button" onClick={this.logoutClickEvent}><i className="fas fa-baseball-ball">3rd Strike!!!</i></button>

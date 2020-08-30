@@ -6,12 +6,19 @@ class BuildPlayer extends React.Component {
   static propTypes = {
     player: playerShape.playerShape,
     cutPlayer: PropTypes.func.isRequired,
+    updateAPlayer: PropTypes.func.isRequired,
   }
 
   cutPlayerEvent = (e) => {
     e.preventDefault();
     const { player, cutPlayer } = this.props;
     cutPlayer(player.id);
+  }
+
+  updatePlayerEvent = (e) => {
+    e.preventDefault();
+    const { updateAPlayer } = this.props;
+    updateAPlayer();
   }
 
   render() {
@@ -25,6 +32,7 @@ class BuildPlayer extends React.Component {
           <p className="card-text">{player.name} plays {player.position} for the Atlanta Braves</p>
         </div>
         <button className="btn btn-danger" onClick={this.cutPlayerEvent}>Cut Player</button>
+        <button type="button" className="btn btn-warning" onClick={this.updatePlayerEvent}>Update Status</button>
       </div>
     );
   }

@@ -7,6 +7,7 @@ import NewPlayerForm from '../NewPlayerForm/NewPlayerForm';
 class PlayerContainer extends React.Component {
   state = {
     players: [],
+    formOpen: false,
   }
 
   getPLayers = () => {
@@ -33,21 +34,25 @@ class PlayerContainer extends React.Component {
     playerData.addPlayer(newPlayer)
       .then(() => {
         this.getPLayers();
-        // this.setState({ formOpen: false });
+        this.setState({ formOpen: false });
       })
       .catch((err) => console.error('could not add player', err));
   }
 
-  render() {
-    const { players } = this.state;
-    // const { addNewPlayer } = this.props;
+  updateAPlayer = () => {
+    this.setState({ formOpen: true });
+  }
 
-    const playerCard = players.map((player) => <BuildPlayers key={player.id} player={player} cutPlayer={this.cutPlayer} />);
+  render() {
+    const { players, formOpen } = this.state;
+
+    const playerCard = players.map((player) => <BuildPlayers key={player.id} player={player} cutPlayer={this.cutPlayer} updateAPlayer={this.updateAPlayer}/>);
 
     return (
       <div>
         <div className="mb-3">
-          <NewPlayerForm addNewPlayer={this.addNewPlayer}/>
+          <button type="button" className="btn btn-info add-player" onClick={() => { this.setState({ formOpen: !formOpen }); }}>Sign Player</button>
+          { formOpen ? <NewPlayerForm addNewPlayer={this.addNewPlayer} /> : '' }
         </div>
         <div className="card-columns">
           {playerCard}
