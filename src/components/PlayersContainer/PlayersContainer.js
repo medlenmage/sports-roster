@@ -45,7 +45,7 @@ class PlayerContainer extends React.Component {
   }
 
   render() {
-    const { players, formOpen } = this.state;
+    const { players, formOpen, updatedPlayer } = this.state;
 
     const playerCard = players.map((player) => <BuildPlayers key={player.id} player={player} cutPlayer={this.cutPlayer} updateAPlayer={this.updateAPlayer}/>);
 
@@ -53,7 +53,7 @@ class PlayerContainer extends React.Component {
       <div>
         <div className="mb-3">
           <button type="button" className="btn btn-info add-player" onClick={() => { this.setState({ formOpen: !formOpen }); }}>Sign Player</button>
-          { formOpen ? <NewPlayerForm addNewPlayer={this.addNewPlayer} /> : '' }
+          { formOpen ? <NewPlayerForm addNewPlayer={this.addNewPlayer} player={updatedPlayer} /> : '' }
         </div>
         <div className="card-columns">
           {playerCard}
