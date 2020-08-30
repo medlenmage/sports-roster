@@ -8,6 +8,7 @@ class PlayerContainer extends React.Component {
   state = {
     players: [],
     formOpen: false,
+    updatedPlayer: {},
   }
 
   getPLayers = () => {
@@ -39,8 +40,8 @@ class PlayerContainer extends React.Component {
       .catch((err) => console.error('could not add player', err));
   }
 
-  updateAPlayer = () => {
-    this.setState({ formOpen: true });
+  updateAPlayer = (playerToUpdate) => {
+    this.setState({ formOpen: true, updatedPlayer: playerToUpdate });
   }
 
   render() {

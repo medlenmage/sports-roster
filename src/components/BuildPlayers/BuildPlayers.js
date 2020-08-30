@@ -17,8 +17,8 @@ class BuildPlayer extends React.Component {
 
   updatePlayerEvent = (e) => {
     e.preventDefault();
-    const { updateAPlayer } = this.props;
-    updateAPlayer();
+    const { updateAPlayer, player } = this.props;
+    updateAPlayer(player);
   }
 
   render() {
