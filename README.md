@@ -18,7 +18,7 @@
 * When submitting update or add form's the dom should refresh to show updated state of the players
 ---
 ### How to run
-1. Here is the link to the delpoyed app ( coming soon )
+1. Here is the link to the delpoyed app https://sports-roster-1e9c9.web.app/
 ---
 ### Contributors
 * [Joshua Medlen](https://github.com/medlenmage)
